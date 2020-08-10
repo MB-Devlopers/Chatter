@@ -11,7 +11,8 @@ if($_COOKIE[$cookie_name] == "" or !isset($_COOKIE[$cookie_name]) ) {
 	$username = $_POST['username'];
 	$cookie_value = $username . " #". rand() ;
 	echo $cookie_value;
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); 	
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); 
+	$username = strip_tags($username);
 	$chat = "<b>". $username . "</b> Joined the chat";
 	$fp = fopen('chat.txt', 'a');  
 	fwrite($fp, $chat. "/newline");  
